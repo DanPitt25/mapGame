@@ -1,0 +1,270 @@
+/* World War Map - Main Styles */
+
+:root {
+    --bg-dark: #1a1a2e;
+    --bg-darker: #0f0f1a;
+    --bg-panel: #16213e;
+    --border-color: #2a2a4a;
+    --text-primary: #e8e8e8;
+    --text-secondary: #a0a0a0;
+    --accent-color: #c9a227;
+    --accent-hover: #e8bc2e;
+
+    /* Map colors */
+    --land-default: #3d5c5c;
+    --land-hover: #4a7070;
+    --land-selected: #c9a227;
+    --ocean-color: #1a2d4a;
+    --border-province: #2a3d3d;
+    --border-country: #1a2a2a;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-primary);
+    overflow: hidden;
+    height: 100vh;
+}
+
+#app {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: 1fr 300px;
+    height: 100vh;
+    gap: 0;
+}
+
+/* Header */
+#header {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: var(--bg-darker);
+    border-bottom: 2px solid var(--accent-color);
+}
+
+#header h1 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--accent-color);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+#controls {
+    display: flex;
+    gap: 5px;
+}
+
+#controls button {
+    width: 36px;
+    height: 36px;
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-panel);
+    color: var(--text-primary);
+    font-size: 1.2rem;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+#controls button:hover {
+    background-color: var(--accent-color);
+    color: var(--bg-dark);
+}
+
+/* Map Container */
+#map-container {
+    grid-column: 1;
+    grid-row: 2;
+    background-color: var(--ocean-color);
+    overflow: hidden;
+    position: relative;
+}
+
+#map {
+    width: 100%;
+    height: 100%;
+    cursor: grab;
+}
+
+#map:active {
+    cursor: grabbing;
+}
+
+/* Province styling */
+.province {
+    fill: var(--land-default);
+    stroke: var(--border-province);
+    stroke-width: 0.5px;
+    transition: fill 0.15s ease;
+    cursor: pointer;
+}
+
+.province:hover {
+    fill: var(--land-hover);
+}
+
+.province.selected {
+    fill: var(--land-selected);
+    stroke: var(--accent-hover);
+    stroke-width: 1.5px;
+}
+
+/* Country borders overlay */
+.country-border {
+    fill: none;
+    stroke: var(--border-country);
+    stroke-width: 1px;
+    pointer-events: none;
+}
+
+/* Ocean and lakes */
+.ocean {
+    fill: var(--ocean-color);
+}
+
+.lake {
+    fill: #1e3a5f;
+}
+
+/* Graticule (lat/long lines) */
+.graticule {
+    fill: none;
+    stroke: rgba(255, 255, 255, 0.1);
+    stroke-width: 0.5px;
+}
+
+/* Info Panel */
+#info-panel {
+    grid-column: 2;
+    grid-row: 2;
+    background-color: var(--bg-panel);
+    border-left: 1px solid var(--border-color);
+    padding: 20px;
+    overflow-y: auto;
+}
+
+#info-panel h2 {
+    font-size: 1.2rem;
+    color: var(--accent-color);
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+#province-details {
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+#province-details p {
+    margin-bottom: 10px;
+    color: var(--text-secondary);
+}
+
+#province-details .detail-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+#province-details .detail-label {
+    color: var(--text-secondary);
+}
+
+#province-details .detail-value {
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+/* Footer */
+#footer {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 20px;
+    background-color: var(--bg-darker);
+    border-top: 1px solid var(--border-color);
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+/* Loading overlay */
+#loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-dark);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#loading.hidden {
+    display: none;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 3px solid var(--border-color);
+    border-top-color: var(--accent-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Faction colors - can be applied via JavaScript */
+.faction-red { fill: #8b4513; }
+.faction-blue { fill: #2e5984; }
+.faction-green { fill: #3d6b4f; }
+.faction-yellow { fill: #8b8b3d; }
+.faction-purple { fill: #5c4a6b; }
+.faction-neutral { fill: var(--land-default); }
+
+/* Province terrain types */
+.terrain-plains { fill: #4a6b4a; }
+.terrain-forest { fill: #2d4a2d; }
+.terrain-mountain { fill: #5c5c5c; }
+.terrain-desert { fill: #8b7355; }
+.terrain-tundra { fill: #6b7b7b; }
+.terrain-urban { fill: #4a4a5c; }
+.terrain-coastal { fill: #4a6b6b; }
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+    #app {
+        grid-template-columns: 1fr;
+    }
+
+    #info-panel {
+        grid-column: 1;
+        grid-row: 3;
+        max-height: 200px;
+        border-left: none;
+        border-top: 1px solid var(--border-color);
+    }
+
+    #footer {
+        grid-row: 4;
+    }
+}
