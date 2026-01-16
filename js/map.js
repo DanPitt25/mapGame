@@ -91,19 +91,45 @@ class WorldMap {
         // Remove existing provinces
         this.g.selectAll(".province").remove();
 
+        // Create a color scale for countries
+        const countries = [...new Set(provinceData.features.map(f => f.properties.admin))];
+        const colorScale = d3.scaleOrdinal()
+            .domain(countries)
+            .range(this.generateCountryColors(countries.length));
+
         // Add provinces
         this.g.selectAll(".province")
             .data(provinceData.features)
             .enter()
             .append("path")
-            .attr("class", d => `province terrain-${d.properties.terrain}`)
+            .attr("class", "province")
             .attr("d", this.path)
             .attr("data-id", d => d.properties.id)
+            .attr("data-country", d => d.properties.admin)
+            .style("fill", d => colorScale(d.properties.admin))
             .on("click", (event, d) => this.handleProvinceClick(event, d))
             .on("mouseenter", (event, d) => this.handleProvinceMouseEnter(event, d))
             .on("mouseleave", (event, d) => this.handleProvinceMouseLeave(event, d));
 
         return this;
+    }
+
+    /**
+     * Generate visually distinct colors for countries
+     */
+    generateCountryColors(count) {
+        const baseColors = [
+            "#4a6670", "#5c7a5c", "#6b5c5c", "#5c5c6b", "#6b6b5c",
+            "#5c6b6b", "#6b5c6b", "#5c6b5c", "#6b6b6b", "#5c5c5c",
+            "#4a5c6b", "#6b5c4a", "#4a6b5c", "#5c4a6b", "#6b4a5c",
+            "#4a6b6b", "#6b6b4a", "#6b4a6b", "#4a5c5c", "#5c6b4a"
+        ];
+        // Repeat colors if needed
+        const colors = [];
+        for (let i = 0; i < count; i++) {
+            colors.push(baseColors[i % baseColors.length]);
+        }
+        return colors;
     }
 
     /**

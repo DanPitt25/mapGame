@@ -9,38 +9,77 @@
     const state = {
         map: null,
         selectedProvince: null,
-        provinces: PROVINCES
+        provinces: null,
+        loading: true
     };
 
     /**
      * Initialize the application
      */
-    function init() {
+    async function init() {
         console.log("Initializing World War Map...");
+        showLoading(true);
 
-        // Initialize map
-        state.map = new WorldMap("map", {
-            initialScale: 250,
-            initialCenter: [-2, 54], // Center on Britain initially
-            onProvinceSelect: handleProvinceSelect,
-            onProvinceHover: handleProvinceHover,
-            onZoomChange: handleZoomChange
-        });
+        try {
+            // Load province data
+            state.provinces = await loadProvinces('data/world_provinces.topojson');
 
-        // Render provinces
-        state.map.renderProvinces(state.provinces);
+            // Initialize map
+            state.map = new WorldMap("map", {
+                initialScale: 150,
+                initialCenter: [0, 20],
+                onProvinceSelect: handleProvinceSelect,
+                onProvinceHover: handleProvinceHover,
+                onZoomChange: handleZoomChange
+            });
 
-        // Set up controls
-        setupControls();
+            // Render provinces
+            state.map.renderProvinces(state.provinces);
 
-        // Set up keyboard shortcuts
-        setupKeyboardShortcuts();
+            // Set up controls
+            setupControls();
 
-        // Update coordinates on mouse move
-        setupCoordinateTracker();
+            // Set up keyboard shortcuts
+            setupKeyboardShortcuts();
 
-        console.log(`Loaded ${state.provinces.features.length} provinces`);
-        updateInfoPanel(null);
+            // Update coordinates on mouse move
+            setupCoordinateTracker();
+
+            console.log(`Loaded ${state.provinces.features.length} provinces from ${getCountries().length} countries`);
+            updateInfoPanel(null);
+            showLoading(false);
+
+        } catch (error) {
+            console.error("Failed to initialize:", error);
+            showError("Failed to load map data. Please refresh the page.");
+        }
+    }
+
+    /**
+     * Show/hide loading indicator
+     */
+    function showLoading(show) {
+        state.loading = show;
+        let loader = document.getElementById("loading");
+        if (!loader && show) {
+            loader = document.createElement("div");
+            loader.id = "loading";
+            loader.innerHTML = '<div class="spinner"></div><div>Loading world map...</div>';
+            document.body.appendChild(loader);
+        }
+        if (loader) {
+            loader.classList.toggle("hidden", !show);
+        }
+    }
+
+    /**
+     * Show error message
+     */
+    function showError(message) {
+        const panel = document.getElementById("province-details");
+        if (panel) {
+            panel.innerHTML = `<p style="color: #ff6b6b;">${message}</p>`;
+        }
     }
 
     /**
@@ -49,7 +88,7 @@
     function handleProvinceSelect(properties, feature) {
         state.selectedProvince = properties;
         updateInfoPanel(properties);
-        console.log("Selected province:", properties.name);
+        console.log("Selected province:", properties.name, "in", properties.admin);
     }
 
     /**
@@ -57,7 +96,7 @@
      */
     function handleProvinceHover(properties, feature, isEntering) {
         if (isEntering) {
-            document.getElementById("province-name").textContent = properties.name;
+            document.getElementById("province-name").textContent = properties.name || "Unknown";
         } else if (!state.selectedProvince) {
             document.getElementById("province-name").textContent = "Select a Province";
         } else {
@@ -81,6 +120,13 @@
 
         if (!properties) {
             nameEl.textContent = "Select a Province";
+
+            const countries = getCountries();
+            const counts = getProvinceCountsByCountry();
+            const topCountries = Object.entries(counts)
+                .sort((a, b) => b[1] - a[1])
+                .slice(0, 5);
+
             detailsEl.innerHTML = `
                 <p>Click on any province to see details</p>
                 <p style="margin-top: 20px; font-size: 0.85rem;">
@@ -92,49 +138,35 @@
                 </p>
                 <p style="margin-top: 20px; font-size: 0.85rem;">
                     <strong>Statistics:</strong><br>
-                    Total provinces: ${state.provinces.features.length}<br>
-                    Regions: ${getUniqueRegions().length}
+                    Total provinces: ${state.provinces ? state.provinces.features.length : 0}<br>
+                    Countries: ${countries.length}
+                </p>
+                <p style="margin-top: 10px; font-size: 0.85rem;">
+                    <strong>Top 5 by provinces:</strong><br>
+                    ${topCountries.map(([c, n]) => `${c}: ${n}`).join('<br>')}
                 </p>
             `;
             return;
         }
 
-        nameEl.textContent = properties.name;
-
-        const terrainLabels = {
-            plains: "Plains",
-            forest: "Forest",
-            mountain: "Mountains",
-            desert: "Desert",
-            tundra: "Tundra",
-            urban: "Urban",
-            coastal: "Coastal"
-        };
+        nameEl.textContent = properties.name || "Unknown Province";
 
         detailsEl.innerHTML = `
             <div class="detail-row">
-                <span class="detail-label">Region</span>
-                <span class="detail-value">${properties.region}</span>
+                <span class="detail-label">Country</span>
+                <span class="detail-value">${properties.admin || "Unknown"}</span>
             </div>
             <div class="detail-row">
-                <span class="detail-label">Capital</span>
-                <span class="detail-value">${properties.capital || "N/A"}</span>
+                <span class="detail-label">ISO Code</span>
+                <span class="detail-value">${properties.iso_3166_2 || properties.iso_a2 || "N/A"}</span>
             </div>
             <div class="detail-row">
-                <span class="detail-label">Terrain</span>
-                <span class="detail-value">${terrainLabels[properties.terrain] || properties.terrain}</span>
-            </div>
-            <div class="detail-row">
-                <span class="detail-label">Population</span>
-                <span class="detail-value">${formatNumber(properties.population)}</span>
-            </div>
-            <div class="detail-row">
-                <span class="detail-label">Resources</span>
-                <span class="detail-value">${properties.resources ? properties.resources.join(", ") : "None"}</span>
+                <span class="detail-label">Type</span>
+                <span class="detail-value">${properties.type_en || properties.type || "N/A"}</span>
             </div>
             <div class="detail-row">
                 <span class="detail-label">Province ID</span>
-                <span class="detail-value" style="font-family: monospace; font-size: 0.8rem;">${properties.id}</span>
+                <span class="detail-value" style="font-family: monospace; font-size: 0.8rem;">${properties.id || "N/A"}</span>
             </div>
         `;
     }
@@ -161,6 +193,8 @@
      */
     function setupKeyboardShortcuts() {
         document.addEventListener("keydown", (event) => {
+            if (state.loading) return;
+
             switch (event.key.toLowerCase()) {
                 case "r":
                     state.map.resetView();
@@ -206,7 +240,7 @@
      * Clear current selection
      */
     function clearSelection() {
-        if (state.map.selectedProvince) {
+        if (state.map && state.map.selectedProvince) {
             const el = document.querySelector(`[data-id="${state.map.selectedProvince}"]`);
             if (el) el.classList.remove("selected");
             state.map.selectedProvince = null;
@@ -216,56 +250,43 @@
     }
 
     /**
-     * Get unique regions from provinces
+     * Navigate to a specific country
      */
-    function getUniqueRegions() {
-        const regions = new Set();
-        state.provinces.features.forEach(f => {
-            regions.add(f.properties.region);
-        });
-        return Array.from(regions);
-    }
-
-    /**
-     * Format large numbers with commas
-     */
-    function formatNumber(num) {
-        if (num === undefined || num === null) return "N/A";
-        return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    }
-
-    /**
-     * Navigate to a specific region
-     */
-    window.navigateToRegion = function(region) {
-        const provinces = getProvincesByRegion(region);
+    window.navigateToCountry = function(countryName) {
+        const provinces = getProvincesByCountry(countryName);
         if (provinces.length === 0) return;
 
-        // Calculate center of region
-        let totalLat = 0, totalLng = 0;
+        // Calculate bounding box
+        let minLng = Infinity, maxLng = -Infinity;
+        let minLat = Infinity, maxLat = -Infinity;
+
         provinces.forEach(p => {
-            const coords = p.geometry.coordinates[0];
-            coords.forEach(c => {
-                totalLng += c[0];
-                totalLat += c[1];
-            });
+            const bounds = d3.geoBounds(p);
+            minLng = Math.min(minLng, bounds[0][0]);
+            maxLng = Math.max(maxLng, bounds[1][0]);
+            minLat = Math.min(minLat, bounds[0][1]);
+            maxLat = Math.max(maxLat, bounds[1][1]);
         });
 
-        const count = provinces.reduce((sum, p) => sum + p.geometry.coordinates[0].length, 0);
-        state.map.centerOn(totalLng / count, totalLat / count, 3);
+        const centerLng = (minLng + maxLng) / 2;
+        const centerLat = (minLat + maxLat) / 2;
+
+        state.map.centerOn(centerLng, centerLat, 3);
     };
 
     /**
-     * Highlight all provinces in a region
+     * Highlight all provinces in a country
      */
-    window.highlightRegion = function(region) {
-        state.map.highlightProvinces(props => props.region === region);
+    window.highlightCountry = function(countryName) {
+        state.map.highlightProvinces(props =>
+            props.admin === countryName || props.iso_a2 === countryName
+        );
     };
 
     /**
-     * Clear region highlight
+     * Clear highlights
      */
-    window.clearRegionHighlight = function() {
+    window.clearHighlight = function() {
         state.map.clearHighlights();
     };
 
