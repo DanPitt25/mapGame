@@ -14,7 +14,8 @@
     --land-default: #3d5c5c;
     --land-hover: #4a7070;
     --land-selected: #c9a227;
-    --ocean-color: #1a2d4a;
+    --ocean-color: #1a2633;
+    --land-base: #2d3d35;
     --border-province: #2a3d3d;
     --border-country: #1a2a2a;
 }
@@ -125,6 +126,14 @@ body {
     filter: brightness(1.4);
     stroke: var(--accent-color);
     stroke-width: 1px;
+}
+
+/* Country base layer */
+.country {
+    fill: var(--land-base);
+    stroke: var(--border-country);
+    stroke-width: 0.5px;
+    pointer-events: none;
 }
 
 /* Country borders overlay */

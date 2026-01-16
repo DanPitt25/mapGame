@@ -52,9 +52,10 @@ class WorldMap {
         // Create path generator
         this.path = d3.geoPath().projection(this.projection);
 
-        // Set up zoom behavior
+        // Set up zoom behavior with faster wheel zoom
         this.zoom = d3.zoom()
             .scaleExtent([this.options.minZoom, this.options.maxZoom])
+            .wheelDelta((event) => -event.deltaY * (event.deltaMode === 1 ? 0.05 : event.deltaMode ? 1 : 0.002) * 2)
             .on("zoom", (event) => this.handleZoom(event));
 
         this.svg.call(this.zoom);
@@ -76,12 +77,31 @@ class WorldMap {
 
     addGraticule() {
         const graticule = d3.geoGraticule()
-            .step([15, 15]);
+            .step([20, 20]);
 
         this.g.append("path")
             .datum(graticule)
             .attr("class", "graticule")
             .attr("d", this.path);
+    }
+
+    /**
+     * Render country base layer from GeoJSON data
+     */
+    renderCountries(countryData) {
+        // Remove existing countries
+        this.g.selectAll(".country").remove();
+
+        // Add countries as base layer
+        this.g.selectAll(".country")
+            .data(countryData.features)
+            .enter()
+            .append("path")
+            .attr("class", "country")
+            .attr("d", this.path)
+            .attr("data-name", d => d.properties.name);
+
+        return this;
     }
 
     /**

@@ -21,8 +21,13 @@
         showLoading(true);
 
         try {
-            // Load province data
-            state.provinces = await loadProvinces('data/world_provinces.topojson');
+            // Load data in parallel
+            const [countryData, provinceData] = await Promise.all([
+                fetch('data/countries.geojson').then(r => r.json()),
+                loadProvinces('data/world_provinces.topojson')
+            ]);
+
+            state.provinces = provinceData;
 
             // Initialize map
             state.map = new WorldMap("map", {
@@ -33,7 +38,8 @@
                 onZoomChange: handleZoomChange
             });
 
-            // Render provinces
+            // Render countries first (base layer), then provinces on top
+            state.map.renderCountries(countryData);
             state.map.renderProvinces(state.provinces);
 
             // Set up controls
