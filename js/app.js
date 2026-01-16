@@ -24,7 +24,7 @@
             // Load data in parallel
             const [countryData, provinceData] = await Promise.all([
                 fetch('data/countries-50m.json').then(r => r.json()),
-                loadProvinces('data/provinces.geojson')
+                loadProvinces('data/provinces-normalized.geojson')
             ]);
 
             state.provinces = provinceData;
@@ -157,22 +157,32 @@
 
         nameEl.textContent = properties.name || "Unknown Province";
 
+        const areaStr = properties.area_km2
+            ? `${properties.area_km2.toLocaleString()} km²`
+            : "N/A";
+
+        const originInfo = properties.subdivided
+            ? `Subdivided from ${properties.originalName || "larger region"}`
+            : properties.merged
+                ? `Merged from ${(properties.mergedFrom || []).join(", ")}`
+                : "Original boundary";
+
         detailsEl.innerHTML = `
             <div class="detail-row">
                 <span class="detail-label">Country</span>
                 <span class="detail-value">${properties.admin || "Unknown"}</span>
             </div>
             <div class="detail-row">
-                <span class="detail-label">ISO Code</span>
-                <span class="detail-value">${properties.iso_3166_2 || properties.iso_a2 || "N/A"}</span>
+                <span class="detail-label">Area</span>
+                <span class="detail-value">${areaStr}</span>
             </div>
             <div class="detail-row">
                 <span class="detail-label">Type</span>
                 <span class="detail-value">${properties.type_en || properties.type || "N/A"}</span>
             </div>
             <div class="detail-row">
-                <span class="detail-label">Province ID</span>
-                <span class="detail-value" style="font-family: monospace; font-size: 0.8rem;">${properties.id || "N/A"}</span>
+                <span class="detail-label">Origin</span>
+                <span class="detail-value" style="font-size: 0.85rem;">${originInfo}</span>
             </div>
         `;
     }

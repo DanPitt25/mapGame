@@ -1,0 +1,1270 @@
+{
+  "totalProvinces": 20672,
+  "byCountry": {
+    "Argentina": {
+      "count": 379,
+      "subdivided": 379,
+      "merged": 4
+    },
+    "Uruguay": {
+      "count": 19,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Indonesia": {
+      "count": 314,
+      "subdivided": 308,
+      "merged": 0
+    },
+    "Malaysia": {
+      "count": 63,
+      "subdivided": 54,
+      "merged": 0
+    },
+    "Chile": {
+      "count": 107,
+      "subdivided": 104,
+      "merged": 4
+    },
+    "Bolivia": {
+      "count": 122,
+      "subdivided": 122,
+      "merged": 8
+    },
+    "Peru": {
+      "count": 145,
+      "subdivided": 139,
+      "merged": 3
+    },
+    "Dhekelia Sovereign Base Area": {
+      "count": 1,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Cyprus": {
+      "count": 5,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "India": {
+      "count": 508,
+      "subdivided": 499,
+      "merged": 3
+    },
+    "China": {
+      "count": 1507,
+      "subdivided": 1505,
+      "merged": 3
+    },
+    "Israel": {
+      "count": 6,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Gaza Strip": {
+      "count": 1,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "West Bank": {
+      "count": 1,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Lebanon": {
+      "count": 6,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Ethiopia": {
+      "count": 149,
+      "subdivided": 147,
+      "merged": 2
+    },
+    "S. Sudan": {
+      "count": 80,
+      "subdivided": 80,
+      "merged": 1
+    },
+    "Somalia": {
+      "count": 54,
+      "subdivided": 53,
+      "merged": 0
+    },
+    "Kenya": {
+      "count": 82,
+      "subdivided": 79,
+      "merged": 0
+    },
+    "Malawi": {
+      "count": 28,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "United Republic of Tanzania": {
+      "count": 120,
+      "subdivided": 114,
+      "merged": 2
+    },
+    "Syria": {
+      "count": 37,
+      "subdivided": 28,
+      "merged": 0
+    },
+    "Somaliland": {
+      "count": 23,
+      "subdivided": 23,
+      "merged": 0
+    },
+    "France": {
+      "count": 177,
+      "subdivided": 111,
+      "merged": 0
+    },
+    "Suriname": {
+      "count": 19,
+      "subdivided": 10,
+      "merged": 0
+    },
+    "Guyana": {
+      "count": 25,
+      "subdivided": 20,
+      "merged": 0
+    },
+    "South Korea": {
+      "count": 31,
+      "subdivided": 21,
+      "merged": 2
+    },
+    "North Korea": {
+      "count": 36,
+      "subdivided": 34,
+      "merged": 2
+    },
+    "Morocco": {
+      "count": 99,
+      "subdivided": 97,
+      "merged": 1
+    },
+    "Western Sahara": {
+      "count": 10,
+      "subdivided": 10,
+      "merged": 0
+    },
+    "Costa Rica": {
+      "count": 7,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Nicaragua": {
+      "count": 23,
+      "subdivided": 8,
+      "merged": 0
+    },
+    "Republic of the Congo": {
+      "count": 38,
+      "subdivided": 34,
+      "merged": 0
+    },
+    "Democratic Republic of the Congo": {
+      "count": 273,
+      "subdivided": 272,
+      "merged": 0
+    },
+    "Bhutan": {
+      "count": 20,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Ukraine": {
+      "count": 117,
+      "subdivided": 116,
+      "merged": 1
+    },
+    "Belarus": {
+      "count": 39,
+      "subdivided": 39,
+      "merged": 1
+    },
+    "Namibia": {
+      "count": 92,
+      "subdivided": 90,
+      "merged": 1
+    },
+    "South Africa": {
+      "count": 159,
+      "subdivided": 159,
+      "merged": 0
+    },
+    "Saint Martin": {
+      "count": 1,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Sint Maarten": {
+      "count": 1,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "United Arab Emirates": {
+      "count": 16,
+      "subdivided": 8,
+      "merged": 0
+    },
+    "Oman": {
+      "count": 44,
+      "subdivided": 39,
+      "merged": 0
+    },
+    "Uzbekistan": {
+      "count": 52,
+      "subdivided": 44,
+      "merged": 0
+    },
+    "Kazakhstan": {
+      "count": 289,
+      "subdivided": 287,
+      "merged": 1
+    },
+    "Tajikistan": {
+      "count": 18,
+      "subdivided": 17,
+      "merged": 1
+    },
+    "Lithuania": {
+      "count": 12,
+      "subdivided": 3,
+      "merged": 0
+    },
+    "Brazil": {
+      "count": 1095,
+      "subdivided": 1094,
+      "merged": 6
+    },
+    "Mongolia": {
+      "count": 162,
+      "subdivided": 160,
+      "merged": 2
+    },
+    "Russia": {
+      "count": 2275,
+      "subdivided": 2267,
+      "merged": 15
+    },
+    "Czech Republic": {
+      "count": 19,
+      "subdivided": 10,
+      "merged": 2
+    },
+    "Germany": {
+      "count": 96,
+      "subdivided": 94,
+      "merged": 4
+    },
+    "Estonia": {
+      "count": 15,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Latvia": {
+      "count": 119,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Norway": {
+      "count": 67,
+      "subdivided": 59,
+      "merged": 1
+    },
+    "Sweden": {
+      "count": 76,
+      "subdivided": 66,
+      "merged": 0
+    },
+    "Finland": {
+      "count": 50,
+      "subdivided": 39,
+      "merged": 0
+    },
+    "Vietnam": {
+      "count": 74,
+      "subdivided": 18,
+      "merged": 1
+    },
+    "Cambodia": {
+      "count": 36,
+      "subdivided": 20,
+      "merged": 1
+    },
+    "Luxembourg": {
+      "count": 3,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Belgium": {
+      "count": 11,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Georgia": {
+      "count": 12,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Macedonia": {
+      "count": 84,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Albania": {
+      "count": 12,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Azerbaijan": {
+      "count": 78,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Kosovo": {
+      "count": 30,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Turkey": {
+      "count": 131,
+      "subdivided": 73,
+      "merged": 0
+    },
+    "Spain": {
+      "count": 82,
+      "subdivided": 46,
+      "merged": 2
+    },
+    "Laos": {
+      "count": 41,
+      "subdivided": 35,
+      "merged": 1
+    },
+    "Kyrgyzstan": {
+      "count": 19,
+      "subdivided": 17,
+      "merged": 2
+    },
+    "Armenia": {
+      "count": 11,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Denmark": {
+      "count": 8,
+      "subdivided": 5,
+      "merged": 0
+    },
+    "Libya": {
+      "count": 273,
+      "subdivided": 266,
+      "merged": 1
+    },
+    "Tunisia": {
+      "count": 33,
+      "subdivided": 12,
+      "merged": 0
+    },
+    "Romania": {
+      "count": 43,
+      "subdivided": 2,
+      "merged": 0
+    },
+    "Hungary": {
+      "count": 45,
+      "subdivided": 5,
+      "merged": 1
+    },
+    "Slovakia": {
+      "count": 9,
+      "subdivided": 2,
+      "merged": 0
+    },
+    "Poland": {
+      "count": 80,
+      "subdivided": 80,
+      "merged": 0
+    },
+    "Ireland": {
+      "count": 34,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "United Kingdom": {
+      "count": 243,
+      "subdivided": 19,
+      "merged": 4
+    },
+    "Greece": {
+      "count": 33,
+      "subdivided": 28,
+      "merged": 0
+    },
+    "Zambia": {
+      "count": 82,
+      "subdivided": 82,
+      "merged": 0
+    },
+    "Sierra Leone": {
+      "count": 8,
+      "subdivided": 6,
+      "merged": 0
+    },
+    "Guinea": {
+      "count": 34,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Liberia": {
+      "count": 15,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Central African Republic": {
+      "count": 68,
+      "subdivided": 64,
+      "merged": 2
+    },
+    "Sudan": {
+      "count": 195,
+      "subdivided": 195,
+      "merged": 0
+    },
+    "Djibouti": {
+      "count": 6,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Eritrea": {
+      "count": 14,
+      "subdivided": 12,
+      "merged": 0
+    },
+    "Austria": {
+      "count": 21,
+      "subdivided": 18,
+      "merged": 0
+    },
+    "Iraq": {
+      "count": 74,
+      "subdivided": 67,
+      "merged": 1
+    },
+    "Italy": {
+      "count": 110,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Switzerland": {
+      "count": 28,
+      "subdivided": 3,
+      "merged": 0
+    },
+    "Iran": {
+      "count": 269,
+      "subdivided": 267,
+      "merged": 1
+    },
+    "Netherlands": {
+      "count": 14,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Liechtenstein": {
+      "count": 11,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Ivory Coast": {
+      "count": 37,
+      "subdivided": 25,
+      "merged": 0
+    },
+    "Republic of Serbia": {
+      "count": 25,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Mali": {
+      "count": 128,
+      "subdivided": 127,
+      "merged": 0
+    },
+    "Senegal": {
+      "count": 22,
+      "subdivided": 12,
+      "merged": 0
+    },
+    "Nigeria": {
+      "count": 122,
+      "subdivided": 109,
+      "merged": 2
+    },
+    "Benin": {
+      "count": 16,
+      "subdivided": 7,
+      "merged": 1
+    },
+    "Angola": {
+      "count": 138,
+      "subdivided": 136,
+      "merged": 1
+    },
+    "Croatia": {
+      "count": 21,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Slovenia": {
+      "count": 193,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Qatar": {
+      "count": 7,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Saudi Arabia": {
+      "count": 239,
+      "subdivided": 238,
+      "merged": 1
+    },
+    "Botswana": {
+      "count": 70,
+      "subdivided": 62,
+      "merged": 1
+    },
+    "Zimbabwe": {
+      "count": 46,
+      "subdivided": 44,
+      "merged": 1
+    },
+    "Pakistan": {
+      "count": 138,
+      "subdivided": 137,
+      "merged": 0
+    },
+    "Bulgaria": {
+      "count": 28,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Thailand": {
+      "count": 99,
+      "subdivided": 34,
+      "merged": 0
+    },
+    "San Marino": {
+      "count": 9,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Haiti": {
+      "count": 10,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Dominican Republic": {
+      "count": 32,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Chad": {
+      "count": 125,
+      "subdivided": 120,
+      "merged": 1
+    },
+    "Kuwait": {
+      "count": 6,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "El Salvador": {
+      "count": 14,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Guatemala": {
+      "count": 26,
+      "subdivided": 5,
+      "merged": 0
+    },
+    "East Timor": {
+      "count": 13,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Brunei": {
+      "count": 4,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Monaco": {
+      "count": 1,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Algeria": {
+      "count": 365,
+      "subdivided": 333,
+      "merged": 0
+    },
+    "Mozambique": {
+      "count": 90,
+      "subdivided": 89,
+      "merged": 0
+    },
+    "Swaziland": {
+      "count": 4,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Burundi": {
+      "count": 17,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Rwanda": {
+      "count": 5,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Myanmar": {
+      "count": 113,
+      "subdivided": 111,
+      "merged": 1
+    },
+    "Bangladesh": {
+      "count": 27,
+      "subdivided": 26,
+      "merged": 0
+    },
+    "Andorra": {
+      "count": 7,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Afghanistan": {
+      "count": 93,
+      "subdivided": 76,
+      "merged": 1
+    },
+    "Montenegro": {
+      "count": 21,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Bosnia and Herzegovina": {
+      "count": 20,
+      "subdivided": 3,
+      "merged": 0
+    },
+    "Uganda": {
+      "count": 112,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "US Naval Base Guantanamo Bay": {
+      "count": 1,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Cuba": {
+      "count": 18,
+      "subdivided": 3,
+      "merged": 0
+    },
+    "Honduras": {
+      "count": 23,
+      "subdivided": 7,
+      "merged": 0
+    },
+    "Ecuador": {
+      "count": 35,
+      "subdivided": 16,
+      "merged": 0
+    },
+    "Colombia": {
+      "count": 129,
+      "subdivided": 120,
+      "merged": 3
+    },
+    "Paraguay": {
+      "count": 46,
+      "subdivided": 33,
+      "merged": 0
+    },
+    "Portugal": {
+      "count": 20,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Moldova": {
+      "count": 40,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Turkmenistan": {
+      "count": 49,
+      "subdivided": 49,
+      "merged": 0
+    },
+    "Jordan": {
+      "count": 19,
+      "subdivided": 9,
+      "merged": 0
+    },
+    "Nepal": {
+      "count": 16,
+      "subdivided": 3,
+      "merged": 0
+    },
+    "Lesotho": {
+      "count": 10,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Cameroon": {
+      "count": 51,
+      "subdivided": 49,
+      "merged": 1
+    },
+    "Gabon": {
+      "count": 32,
+      "subdivided": 31,
+      "merged": 0
+    },
+    "Niger": {
+      "count": 118,
+      "subdivided": 117,
+      "merged": 0
+    },
+    "Burkina Faso": {
+      "count": 45,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Togo": {
+      "count": 5,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Ghana": {
+      "count": 30,
+      "subdivided": 27,
+      "merged": 0
+    },
+    "Guinea Bissau": {
+      "count": 9,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Gibraltar": {
+      "count": 1,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "United States of America": {
+      "count": 1227,
+      "subdivided": 1223,
+      "merged": 9
+    },
+    "Canada": {
+      "count": 1417,
+      "subdivided": 1416,
+      "merged": 2
+    },
+    "Mexico": {
+      "count": 282,
+      "subdivided": 276,
+      "merged": 5
+    },
+    "Belize": {
+      "count": 6,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Panama": {
+      "count": 12,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Venezuela": {
+      "count": 103,
+      "subdivided": 88,
+      "merged": 1
+    },
+    "Papua New Guinea": {
+      "count": 83,
+      "subdivided": 77,
+      "merged": 1
+    },
+    "Egypt": {
+      "count": 168,
+      "subdivided": 149,
+      "merged": 0
+    },
+    "Yemen": {
+      "count": 66,
+      "subdivided": 54,
+      "merged": 2
+    },
+    "Mauritania": {
+      "count": 107,
+      "subdivided": 103,
+      "merged": 0
+    },
+    "Equatorial Guinea": {
+      "count": 7,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Gambia": {
+      "count": 6,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Hong Kong S.A.R.": {
+      "count": 18,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Vatican": {
+      "count": 1,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Northern Cyprus": {
+      "count": 1,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Siachen Glacier": {
+      "count": 1,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Baykonur Cosmodrome": {
+      "count": 1,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Akrotiri Sovereign Base Area": {
+      "count": 1,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Antarctica": {
+      "count": 36,
+      "subdivided": 36,
+      "merged": 0
+    },
+    "New Zealand": {
+      "count": 56,
+      "subdivided": 41,
+      "merged": 1
+    },
+    "New Caledonia": {
+      "count": 3,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Australia": {
+      "count": 1139,
+      "subdivided": 1136,
+      "merged": 3
+    },
+    "Madagascar": {
+      "count": 68,
+      "subdivided": 62,
+      "merged": 2
+    },
+    "Philippines": {
+      "count": 120,
+      "subdivided": 3,
+      "merged": 0
+    },
+    "Sri Lanka": {
+      "count": 25,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Curaçao": {
+      "count": 1,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Aruba": {
+      "count": 1,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "The Bahamas": {
+      "count": 30,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Turks and Caicos Islands": {
+      "count": 6,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Taiwan": {
+      "count": 21,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Japan": {
+      "count": 108,
+      "subdivided": 84,
+      "merged": 0
+    },
+    "Saint Pierre and Miquelon": {
+      "count": 2,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Iceland": {
+      "count": 16,
+      "subdivided": 10,
+      "merged": 0
+    },
+    "Greenland": {
+      "count": 239,
+      "subdivided": 239,
+      "merged": 1
+    },
+    "Pitcairn Islands": {
+      "count": 1,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "French Polynesia": {
+      "count": 5,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "French Southern and Antarctic Lands": {
+      "count": 4,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Seychelles": {
+      "count": 26,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Kiribati": {
+      "count": 2,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Marshall Islands": {
+      "count": 2,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Trinidad and Tobago": {
+      "count": 16,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Grenada": {
+      "count": 7,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Caribbean Netherlands": {
+      "count": 1,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Saint Vincent and the Grenadines": {
+      "count": 6,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Barbados": {
+      "count": 11,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Saint Lucia": {
+      "count": 11,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Dominica": {
+      "count": 10,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "United States Minor Outlying Islands": {
+      "count": 8,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Montserrat": {
+      "count": 3,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Antigua and Barbuda": {
+      "count": 8,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Saint Kitts and Nevis": {
+      "count": 14,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "United States Virgin Islands": {
+      "count": 3,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Saint Barthelemy": {
+      "count": 1,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Puerto Rico": {
+      "count": 1,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Anguilla": {
+      "count": 15,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "British Virgin Islands": {
+      "count": 1,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Jamaica": {
+      "count": 14,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Cayman Islands": {
+      "count": 1,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Bermuda": {
+      "count": 11,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Heard Island and McDonald Islands": {
+      "count": 1,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Saint Helena": {
+      "count": 3,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Mauritius": {
+      "count": 16,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Comoros": {
+      "count": 3,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Sao Tome and Principe": {
+      "count": 2,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Cape Verde": {
+      "count": 22,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Malta": {
+      "count": 68,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Jersey": {
+      "count": 1,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Guernsey": {
+      "count": 1,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Isle of Man": {
+      "count": 1,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Aland": {
+      "count": 11,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Faroe Islands": {
+      "count": 1,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Indian Ocean Territories": {
+      "count": 2,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "British Indian Ocean Territory": {
+      "count": 1,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Singapore": {
+      "count": 5,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Norfolk Island": {
+      "count": 1,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Cook Islands": {
+      "count": 11,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Fiji": {
+      "count": 5,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Tonga": {
+      "count": 5,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Wallis and Futuna": {
+      "count": 3,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Samoa": {
+      "count": 11,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Solomon Islands": {
+      "count": 10,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Tuvalu": {
+      "count": 1,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Maldives": {
+      "count": 21,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Nauru": {
+      "count": 14,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Federated States of Micronesia": {
+      "count": 4,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "South Georgia and the Islands": {
+      "count": 1,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Falkland Islands": {
+      "count": 1,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Vanuatu": {
+      "count": 6,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Niue": {
+      "count": 1,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "American Samoa": {
+      "count": 5,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Palau": {
+      "count": 16,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Guam": {
+      "count": 1,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Northern Mariana Islands": {
+      "count": 4,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Bahrain": {
+      "count": 5,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Coral Sea Islands": {
+      "count": 1,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Spratly Is.": {
+      "count": 1,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Clipperton Island": {
+      "count": 1,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Macau S.A.R": {
+      "count": 1,
+      "subdivided": 0,
+      "merged": 0
+    },
+    "Ashmore and Cartier Islands": {
+      "count": 1,
+      "subdivided": 0,
+      "merged": 0
+    }
+  }
+}
