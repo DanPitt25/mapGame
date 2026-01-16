@@ -1,133 +1,354 @@
 /**
  * Province Data Structure
  *
- * Each province is a GeoJSON Feature with properties for game mechanics
- * Britain is divided into ~50 provinces as the reference implementation
+ * British provinces with proper non-overlapping boundaries
+ * that tile together to form the shape of Britain
  */
 
 const PROVINCES = {
     type: "FeatureCollection",
     features: [
         // ============================================
-        // SCOTLAND (~12 provinces)
+        // SCOTLAND - Northern Regions
         // ============================================
         {
             type: "Feature",
             properties: {
-                id: "scot_highlands_west",
-                name: "Western Highlands",
+                id: "scot_shetland",
+                name: "Shetland",
                 region: "Scotland",
                 country: "GBR",
-                terrain: "mountain",
-                population: 50000,
-                resources: ["timber", "fish"],
-                capital: "Fort William"
+                terrain: "coastal",
+                population: 23000,
+                resources: ["fish", "oil"],
+                capital: "Lerwick"
             },
             geometry: {
                 type: "Polygon",
-                coordinates: [[[-6.5, 58.5], [-5.0, 58.5], [-5.0, 56.8], [-5.5, 56.5], [-6.8, 56.8], [-6.5, 58.5]]]
+                coordinates: [[[-2.0, 60.8], [-0.8, 60.8], [-0.8, 59.8], [-2.0, 59.8], [-2.0, 60.8]]]
             }
         },
         {
             type: "Feature",
             properties: {
-                id: "scot_highlands_east",
-                name: "Eastern Highlands",
+                id: "scot_orkney",
+                name: "Orkney",
                 region: "Scotland",
                 country: "GBR",
-                terrain: "mountain",
-                population: 80000,
-                resources: ["timber", "whisky"],
-                capital: "Inverness"
+                terrain: "coastal",
+                population: 22000,
+                resources: ["fish", "whisky"],
+                capital: "Kirkwall"
             },
             geometry: {
                 type: "Polygon",
-                coordinates: [[[-5.0, 58.5], [-3.0, 58.6], [-3.5, 57.0], [-5.0, 56.8], [-5.0, 58.5]]]
+                coordinates: [[[-3.4, 59.4], [-2.4, 59.4], [-2.4, 58.7], [-3.4, 58.7], [-3.4, 59.4]]]
             }
         },
         {
             type: "Feature",
             properties: {
                 id: "scot_caithness",
-                name: "Caithness & Sutherland",
+                name: "Caithness",
                 region: "Scotland",
                 country: "GBR",
                 terrain: "tundra",
-                population: 30000,
+                population: 26000,
                 resources: ["fish", "peat"],
                 capital: "Wick"
             },
             geometry: {
                 type: "Polygon",
-                coordinates: [[[-5.5, 58.5], [-3.0, 58.6], [-3.0, 58.0], [-5.0, 58.5], [-5.5, 58.5]]]
+                coordinates: [[[-5.0, 58.7], [-3.0, 58.7], [-3.0, 58.3], [-5.0, 58.3], [-5.0, 58.7]]]
             }
         },
         {
             type: "Feature",
             properties: {
-                id: "scot_grampian",
-                name: "Grampian",
+                id: "scot_sutherland",
+                name: "Sutherland",
+                region: "Scotland",
+                country: "GBR",
+                terrain: "mountain",
+                population: 13000,
+                resources: ["timber", "deer"],
+                capital: "Dornoch"
+            },
+            geometry: {
+                type: "Polygon",
+                coordinates: [[[-5.5, 58.3], [-4.0, 58.3], [-4.0, 57.8], [-5.5, 57.8], [-5.5, 58.3]]]
+            }
+        },
+        {
+            type: "Feature",
+            properties: {
+                id: "scot_ross",
+                name: "Ross & Cromarty",
+                region: "Scotland",
+                country: "GBR",
+                terrain: "mountain",
+                population: 50000,
+                resources: ["timber", "fish"],
+                capital: "Dingwall"
+            },
+            geometry: {
+                type: "Polygon",
+                coordinates: [[[-5.8, 57.8], [-4.0, 57.8], [-4.0, 57.4], [-5.8, 57.4], [-5.8, 57.8]]]
+            }
+        },
+        {
+            type: "Feature",
+            properties: {
+                id: "scot_inverness",
+                name: "Inverness",
+                region: "Scotland",
+                country: "GBR",
+                terrain: "mountain",
+                population: 70000,
+                resources: ["whisky", "timber"],
+                capital: "Inverness"
+            },
+            geometry: {
+                type: "Polygon",
+                coordinates: [[[-5.5, 57.4], [-4.0, 57.4], [-4.0, 57.0], [-5.5, 57.0], [-5.5, 57.4]]]
+            }
+        },
+        {
+            type: "Feature",
+            properties: {
+                id: "scot_moray",
+                name: "Moray",
                 region: "Scotland",
                 country: "GBR",
                 terrain: "plains",
-                population: 250000,
-                resources: ["grain", "fish", "oil"],
+                population: 95000,
+                resources: ["whisky", "fish"],
+                capital: "Elgin"
+            },
+            geometry: {
+                type: "Polygon",
+                coordinates: [[[-4.0, 57.8], [-3.0, 57.8], [-3.0, 57.4], [-4.0, 57.4], [-4.0, 57.8]]]
+            }
+        },
+        {
+            type: "Feature",
+            properties: {
+                id: "scot_aberdeen",
+                name: "Aberdeenshire",
+                region: "Scotland",
+                country: "GBR",
+                terrain: "plains",
+                population: 260000,
+                resources: ["fish", "oil", "grain"],
                 capital: "Aberdeen"
             },
             geometry: {
                 type: "Polygon",
-                coordinates: [[[-3.5, 57.7], [-1.8, 57.7], [-2.0, 56.9], [-3.5, 57.0], [-3.5, 57.7]]]
+                coordinates: [[[-3.0, 57.8], [-1.8, 57.5], [-2.0, 57.0], [-3.0, 57.0], [-3.0, 57.8]]]
+            }
+        },
+        {
+            type: "Feature",
+            properties: {
+                id: "scot_hebrides",
+                name: "Western Isles",
+                region: "Scotland",
+                country: "GBR",
+                terrain: "coastal",
+                population: 27000,
+                resources: ["fish", "tweed"],
+                capital: "Stornoway"
+            },
+            geometry: {
+                type: "Polygon",
+                coordinates: [[[-7.6, 58.3], [-6.2, 58.3], [-6.2, 56.8], [-7.6, 56.8], [-7.6, 58.3]]]
+            }
+        },
+        {
+            type: "Feature",
+            properties: {
+                id: "scot_skye",
+                name: "Skye & Lochalsh",
+                region: "Scotland",
+                country: "GBR",
+                terrain: "mountain",
+                population: 13000,
+                resources: ["fish", "tourism"],
+                capital: "Portree"
+            },
+            geometry: {
+                type: "Polygon",
+                coordinates: [[[-6.8, 57.5], [-5.8, 57.5], [-5.8, 57.0], [-6.8, 57.0], [-6.8, 57.5]]]
+            }
+        },
+        {
+            type: "Feature",
+            properties: {
+                id: "scot_lochaber",
+                name: "Lochaber",
+                region: "Scotland",
+                country: "GBR",
+                terrain: "mountain",
+                population: 20000,
+                resources: ["timber", "aluminum"],
+                capital: "Fort William"
+            },
+            geometry: {
+                type: "Polygon",
+                coordinates: [[[-5.8, 57.0], [-5.0, 57.0], [-5.0, 56.5], [-5.8, 56.5], [-5.8, 57.0]]]
+            }
+        },
+        {
+            type: "Feature",
+            properties: {
+                id: "scot_perth",
+                name: "Perthshire",
+                region: "Scotland",
+                country: "GBR",
+                terrain: "mountain",
+                population: 150000,
+                resources: ["whisky", "wool"],
+                capital: "Perth"
+            },
+            geometry: {
+                type: "Polygon",
+                coordinates: [[[-5.0, 57.0], [-3.5, 57.0], [-3.5, 56.3], [-5.0, 56.3], [-5.0, 57.0]]]
             }
         },
         {
             type: "Feature",
             properties: {
                 id: "scot_angus",
-                name: "Angus & Fife",
+                name: "Angus",
                 region: "Scotland",
                 country: "GBR",
                 terrain: "plains",
-                population: 350000,
-                resources: ["grain", "fish"],
-                capital: "Dundee"
+                population: 116000,
+                resources: ["grain", "jute"],
+                capital: "Forfar"
             },
             geometry: {
                 type: "Polygon",
-                coordinates: [[[-3.5, 57.0], [-2.0, 56.9], [-2.5, 56.2], [-3.5, 56.3], [-3.5, 57.0]]]
+                coordinates: [[[-3.5, 57.0], [-2.5, 56.8], [-2.7, 56.4], [-3.5, 56.4], [-3.5, 57.0]]]
             }
         },
         {
             type: "Feature",
             properties: {
-                id: "scot_central",
-                name: "Central Scotland",
+                id: "scot_fife",
+                name: "Fife",
+                region: "Scotland",
+                country: "GBR",
+                terrain: "plains",
+                population: 370000,
+                resources: ["coal", "fish"],
+                capital: "Glenrothes"
+            },
+            geometry: {
+                type: "Polygon",
+                coordinates: [[[-3.5, 56.4], [-2.7, 56.4], [-2.8, 56.1], [-3.5, 56.1], [-3.5, 56.4]]]
+            }
+        },
+        {
+            type: "Feature",
+            properties: {
+                id: "scot_argyll",
+                name: "Argyll",
+                region: "Scotland",
+                country: "GBR",
+                terrain: "coastal",
+                population: 89000,
+                resources: ["fish", "timber"],
+                capital: "Lochgilphead"
+            },
+            geometry: {
+                type: "Polygon",
+                coordinates: [[[-6.5, 56.5], [-5.0, 56.5], [-5.0, 55.8], [-6.5, 55.8], [-6.5, 56.5]]]
+            }
+        },
+        {
+            type: "Feature",
+            properties: {
+                id: "scot_stirling",
+                name: "Stirling",
+                region: "Scotland",
+                country: "GBR",
+                terrain: "plains",
+                population: 93000,
+                resources: ["coal", "manufacturing"],
+                capital: "Stirling"
+            },
+            geometry: {
+                type: "Polygon",
+                coordinates: [[[-5.0, 56.3], [-3.8, 56.3], [-3.8, 56.0], [-5.0, 56.0], [-5.0, 56.3]]]
+            }
+        },
+        {
+            type: "Feature",
+            properties: {
+                id: "scot_glasgow",
+                name: "Glasgow",
                 region: "Scotland",
                 country: "GBR",
                 terrain: "urban",
-                population: 1500000,
-                resources: ["coal", "steel", "manufacturing"],
+                population: 630000,
+                resources: ["shipbuilding", "manufacturing"],
                 capital: "Glasgow"
             },
             geometry: {
                 type: "Polygon",
-                coordinates: [[[-5.5, 56.5], [-3.5, 56.3], [-3.2, 55.8], [-4.5, 55.7], [-5.5, 56.0], [-5.5, 56.5]]]
+                coordinates: [[[-4.6, 56.0], [-4.0, 56.0], [-4.0, 55.7], [-4.6, 55.7], [-4.6, 56.0]]]
             }
         },
         {
             type: "Feature",
             properties: {
-                id: "scot_lothian",
-                name: "Lothian",
+                id: "scot_edinburgh",
+                name: "Edinburgh",
                 region: "Scotland",
                 country: "GBR",
                 terrain: "urban",
-                population: 800000,
-                resources: ["coal", "manufacturing"],
+                population: 540000,
+                resources: ["finance", "manufacturing"],
                 capital: "Edinburgh"
             },
             geometry: {
                 type: "Polygon",
-                coordinates: [[[-3.5, 56.3], [-2.5, 56.2], [-2.8, 55.8], [-3.2, 55.8], [-3.5, 56.3]]]
+                coordinates: [[[-3.5, 56.1], [-3.0, 56.1], [-3.0, 55.8], [-3.5, 55.8], [-3.5, 56.1]]]
+            }
+        },
+        {
+            type: "Feature",
+            properties: {
+                id: "scot_lanark",
+                name: "Lanarkshire",
+                region: "Scotland",
+                country: "GBR",
+                terrain: "urban",
+                population: 320000,
+                resources: ["coal", "steel"],
+                capital: "Hamilton"
+            },
+            geometry: {
+                type: "Polygon",
+                coordinates: [[[-4.2, 55.9], [-3.5, 55.9], [-3.5, 55.5], [-4.2, 55.5], [-4.2, 55.9]]]
+            }
+        },
+        {
+            type: "Feature",
+            properties: {
+                id: "scot_ayr",
+                name: "Ayrshire",
+                region: "Scotland",
+                country: "GBR",
+                terrain: "plains",
+                population: 370000,
+                resources: ["coal", "dairy"],
+                capital: "Ayr"
+            },
+            geometry: {
+                type: "Polygon",
+                coordinates: [[[-5.2, 55.8], [-4.4, 55.8], [-4.4, 55.2], [-5.2, 55.2], [-5.2, 55.8]]]
             }
         },
         {
@@ -138,187 +359,221 @@ const PROVINCES = {
                 region: "Scotland",
                 country: "GBR",
                 terrain: "plains",
-                population: 120000,
-                resources: ["wool", "grain"],
-                capital: "Kelso"
+                population: 115000,
+                resources: ["wool", "textiles"],
+                capital: "Newtown St Boswells"
             },
             geometry: {
                 type: "Polygon",
-                coordinates: [[[-3.2, 55.8], [-2.8, 55.8], [-2.0, 55.8], [-2.2, 55.4], [-3.0, 55.3], [-3.2, 55.8]]]
+                coordinates: [[[-3.5, 55.8], [-2.2, 55.8], [-2.2, 55.3], [-3.5, 55.3], [-3.5, 55.8]]]
             }
         },
         {
             type: "Feature",
             properties: {
-                id: "scot_galloway",
+                id: "scot_dumfries",
                 name: "Dumfries & Galloway",
                 region: "Scotland",
                 country: "GBR",
                 terrain: "plains",
-                population: 150000,
-                resources: ["dairy", "wool"],
+                population: 148000,
+                resources: ["dairy", "timber"],
                 capital: "Dumfries"
             },
             geometry: {
                 type: "Polygon",
-                coordinates: [[[-5.5, 55.3], [-4.5, 55.7], [-3.0, 55.3], [-3.2, 54.9], [-5.0, 54.8], [-5.5, 55.3]]]
-            }
-        },
-        {
-            type: "Feature",
-            properties: {
-                id: "scot_argyll",
-                name: "Argyll",
-                region: "Scotland",
-                country: "GBR",
-                terrain: "mountain",
-                population: 90000,
-                resources: ["fish", "timber"],
-                capital: "Oban"
-            },
-            geometry: {
-                type: "Polygon",
-                coordinates: [[[-6.8, 56.8], [-5.5, 56.5], [-5.5, 55.5], [-6.5, 55.5], [-7.0, 56.3], [-6.8, 56.8]]]
-            }
-        },
-        {
-            type: "Feature",
-            properties: {
-                id: "scot_hebrides",
-                name: "Hebrides",
-                region: "Scotland",
-                country: "GBR",
-                terrain: "coastal",
-                population: 45000,
-                resources: ["fish", "peat"],
-                capital: "Stornoway"
-            },
-            geometry: {
-                type: "Polygon",
-                coordinates: [[[-7.8, 58.3], [-6.2, 58.3], [-6.2, 56.8], [-7.5, 56.8], [-7.8, 58.3]]]
-            }
-        },
-        {
-            type: "Feature",
-            properties: {
-                id: "scot_orkney_shetland",
-                name: "Northern Isles",
-                region: "Scotland",
-                country: "GBR",
-                terrain: "coastal",
-                population: 40000,
-                resources: ["fish", "oil"],
-                capital: "Kirkwall"
-            },
-            geometry: {
-                type: "Polygon",
-                coordinates: [[[-3.5, 61.0], [-0.5, 61.0], [-0.5, 58.7], [-3.5, 58.7], [-3.5, 61.0]]]
+                coordinates: [[[-5.2, 55.2], [-3.5, 55.2], [-3.5, 54.8], [-5.2, 54.8], [-5.2, 55.2]]]
             }
         },
 
         // ============================================
-        // ENGLAND - NORTH (~10 provinces)
+        // ENGLAND - North
         // ============================================
         {
             type: "Feature",
             properties: {
                 id: "eng_northumberland",
                 name: "Northumberland",
-                region: "North England",
+                region: "Northern England",
                 country: "GBR",
                 terrain: "plains",
                 population: 320000,
                 resources: ["coal", "wool"],
+                capital: "Morpeth"
+            },
+            geometry: {
+                type: "Polygon",
+                coordinates: [[[-2.7, 55.8], [-1.5, 55.8], [-1.5, 55.1], [-2.7, 55.1], [-2.7, 55.8]]]
+            }
+        },
+        {
+            type: "Feature",
+            properties: {
+                id: "eng_tyneside",
+                name: "Tyneside",
+                region: "Northern England",
+                country: "GBR",
+                terrain: "urban",
+                population: 880000,
+                resources: ["coal", "shipbuilding"],
                 capital: "Newcastle"
             },
             geometry: {
                 type: "Polygon",
-                coordinates: [[[-2.8, 55.8], [-1.5, 55.8], [-1.5, 55.0], [-2.5, 55.0], [-2.8, 55.8]]]
+                coordinates: [[[-2.0, 55.1], [-1.4, 55.1], [-1.4, 54.85], [-2.0, 54.85], [-2.0, 55.1]]]
             }
         },
         {
             type: "Feature",
             properties: {
                 id: "eng_durham",
-                name: "Durham",
-                region: "North England",
+                name: "County Durham",
+                region: "Northern England",
                 country: "GBR",
-                terrain: "urban",
-                population: 520000,
+                terrain: "plains",
+                population: 530000,
                 resources: ["coal", "steel"],
                 capital: "Durham"
             },
             geometry: {
                 type: "Polygon",
-                coordinates: [[[-2.5, 55.0], [-1.2, 55.0], [-1.2, 54.5], [-2.3, 54.5], [-2.5, 55.0]]]
+                coordinates: [[[-2.4, 55.0], [-1.4, 55.0], [-1.4, 54.5], [-2.4, 54.5], [-2.4, 55.0]]]
             }
         },
         {
             type: "Feature",
             properties: {
-                id: "eng_cumbria",
-                name: "Cumbria",
-                region: "North England",
+                id: "eng_cumbria_north",
+                name: "North Cumbria",
+                region: "Northern England",
                 country: "GBR",
                 terrain: "mountain",
-                population: 280000,
+                population: 105000,
                 resources: ["wool", "slate"],
                 capital: "Carlisle"
             },
             geometry: {
                 type: "Polygon",
-                coordinates: [[[-3.5, 55.1], [-2.5, 55.0], [-2.3, 54.5], [-2.5, 54.0], [-3.5, 54.1], [-3.5, 55.1]]]
+                coordinates: [[[-3.5, 55.2], [-2.7, 55.2], [-2.7, 54.7], [-3.5, 54.7], [-3.5, 55.2]]]
             }
         },
         {
             type: "Feature",
             properties: {
-                id: "eng_yorkshire_north",
-                name: "North Yorkshire",
-                region: "North England",
+                id: "eng_cumbria_south",
+                name: "Lake District",
+                region: "Northern England",
                 country: "GBR",
-                terrain: "plains",
-                population: 400000,
-                resources: ["wool", "grain"],
-                capital: "York"
+                terrain: "mountain",
+                population: 42000,
+                resources: ["slate", "tourism"],
+                capital: "Kendal"
             },
             geometry: {
                 type: "Polygon",
-                coordinates: [[[-2.3, 54.5], [-0.8, 54.5], [-0.2, 54.0], [-1.5, 53.8], [-2.3, 54.0], [-2.3, 54.5]]]
+                coordinates: [[[-3.5, 54.7], [-2.7, 54.7], [-2.7, 54.2], [-3.5, 54.2], [-3.5, 54.7]]]
             }
         },
         {
             type: "Feature",
             properties: {
-                id: "eng_yorkshire_west",
-                name: "West Yorkshire",
-                region: "North England",
+                id: "eng_teesside",
+                name: "Teesside",
+                region: "Northern England",
                 country: "GBR",
                 terrain: "urban",
-                population: 1200000,
-                resources: ["coal", "wool", "manufacturing"],
-                capital: "Leeds"
+                population: 380000,
+                resources: ["steel", "chemicals"],
+                capital: "Middlesbrough"
             },
             geometry: {
                 type: "Polygon",
-                coordinates: [[[-2.3, 54.0], [-1.5, 53.8], [-1.2, 53.5], [-2.0, 53.5], [-2.3, 54.0]]]
+                coordinates: [[[-1.5, 54.65], [-0.9, 54.65], [-0.9, 54.4], [-1.5, 54.4], [-1.5, 54.65]]]
             }
         },
         {
             type: "Feature",
             properties: {
-                id: "eng_yorkshire_east",
-                name: "East Yorkshire",
-                region: "North England",
+                id: "eng_york_north",
+                name: "North Yorkshire",
+                region: "Yorkshire",
                 country: "GBR",
                 terrain: "plains",
-                population: 350000,
-                resources: ["grain", "fish"],
-                capital: "Hull"
+                population: 615000,
+                resources: ["wool", "grain"],
+                capital: "Northallerton"
             },
             geometry: {
                 type: "Polygon",
-                coordinates: [[[-1.5, 53.8], [-0.2, 54.0], [0.2, 53.7], [-0.2, 53.5], [-1.2, 53.5], [-1.5, 53.8]]]
+                coordinates: [[[-2.4, 54.5], [-0.9, 54.5], [-0.9, 53.9], [-2.4, 53.9], [-2.4, 54.5]]]
+            }
+        },
+        {
+            type: "Feature",
+            properties: {
+                id: "eng_york_east",
+                name: "East Riding",
+                region: "Yorkshire",
+                country: "GBR",
+                terrain: "plains",
+                population: 340000,
+                resources: ["grain", "fish"],
+                capital: "Beverley"
+            },
+            geometry: {
+                type: "Polygon",
+                coordinates: [[[-0.9, 54.2], [0.1, 54.0], [-0.1, 53.7], [-0.9, 53.7], [-0.9, 54.2]]]
+            }
+        },
+        {
+            type: "Feature",
+            properties: {
+                id: "eng_hull",
+                name: "Hull",
+                region: "Yorkshire",
+                country: "GBR",
+                terrain: "urban",
+                population: 260000,
+                resources: ["fish", "port"],
+                capital: "Kingston upon Hull"
+            },
+            geometry: {
+                type: "Polygon",
+                coordinates: [[[-0.5, 53.8], [0.0, 53.8], [0.0, 53.65], [-0.5, 53.65], [-0.5, 53.8]]]
+            }
+        },
+        {
+            type: "Feature",
+            properties: {
+                id: "eng_york_west",
+                name: "West Yorkshire",
+                region: "Yorkshire",
+                country: "GBR",
+                terrain: "urban",
+                population: 2300000,
+                resources: ["wool", "manufacturing"],
+                capital: "Wakefield"
+            },
+            geometry: {
+                type: "Polygon",
+                coordinates: [[[-2.0, 53.9], [-1.2, 53.9], [-1.2, 53.6], [-2.0, 53.6], [-2.0, 53.9]]]
+            }
+        },
+        {
+            type: "Feature",
+            properties: {
+                id: "eng_york_south",
+                name: "South Yorkshire",
+                region: "Yorkshire",
+                country: "GBR",
+                terrain: "urban",
+                population: 1400000,
+                resources: ["coal", "steel"],
+                capital: "Barnsley"
+            },
+            geometry: {
+                type: "Polygon",
+                coordinates: [[[-1.8, 53.6], [-1.0, 53.6], [-1.0, 53.3], [-1.8, 53.3], [-1.8, 53.6]]]
             }
         },
         {
@@ -326,16 +581,16 @@ const PROVINCES = {
             properties: {
                 id: "eng_lancashire",
                 name: "Lancashire",
-                region: "North England",
+                region: "North West",
                 country: "GBR",
-                terrain: "urban",
-                population: 900000,
-                resources: ["coal", "cotton", "manufacturing"],
-                capital: "Lancaster"
+                terrain: "plains",
+                population: 1500000,
+                resources: ["cotton", "coal"],
+                capital: "Preston"
             },
             geometry: {
                 type: "Polygon",
-                coordinates: [[[-3.5, 54.1], [-2.5, 54.0], [-2.3, 53.5], [-3.2, 53.5], [-3.5, 54.1]]]
+                coordinates: [[[-3.2, 54.2], [-2.2, 54.2], [-2.2, 53.7], [-3.2, 53.7], [-3.2, 54.2]]]
             }
         },
         {
@@ -343,16 +598,16 @@ const PROVINCES = {
             properties: {
                 id: "eng_manchester",
                 name: "Greater Manchester",
-                region: "North England",
+                region: "North West",
                 country: "GBR",
                 terrain: "urban",
                 population: 2800000,
-                resources: ["coal", "manufacturing", "cotton"],
+                resources: ["cotton", "manufacturing"],
                 capital: "Manchester"
             },
             geometry: {
                 type: "Polygon",
-                coordinates: [[[-2.6, 53.6], [-2.0, 53.6], [-2.0, 53.3], [-2.6, 53.3], [-2.6, 53.6]]]
+                coordinates: [[[-2.5, 53.6], [-2.0, 53.6], [-2.0, 53.35], [-2.5, 53.35], [-2.5, 53.6]]]
             }
         },
         {
@@ -360,139 +615,139 @@ const PROVINCES = {
             properties: {
                 id: "eng_merseyside",
                 name: "Merseyside",
-                region: "North England",
+                region: "North West",
                 country: "GBR",
                 terrain: "urban",
                 population: 1400000,
-                resources: ["manufacturing", "port"],
+                resources: ["port", "manufacturing"],
                 capital: "Liverpool"
             },
             geometry: {
                 type: "Polygon",
-                coordinates: [[[-3.2, 53.5], [-2.6, 53.5], [-2.6, 53.2], [-3.2, 53.2], [-3.2, 53.5]]]
+                coordinates: [[[-3.2, 53.55], [-2.8, 53.55], [-2.8, 53.3], [-3.2, 53.3], [-3.2, 53.55]]]
             }
         },
-
-        // ============================================
-        // ENGLAND - MIDLANDS (~8 provinces)
-        // ============================================
         {
             type: "Feature",
             properties: {
                 id: "eng_cheshire",
                 name: "Cheshire",
-                region: "Midlands",
+                region: "North West",
                 country: "GBR",
                 terrain: "plains",
-                population: 350000,
-                resources: ["dairy", "salt"],
+                population: 1050000,
+                resources: ["salt", "dairy"],
                 capital: "Chester"
             },
             geometry: {
                 type: "Polygon",
-                coordinates: [[[-3.2, 53.2], [-2.4, 53.2], [-2.4, 52.9], [-3.0, 52.9], [-3.2, 53.2]]]
+                coordinates: [[[-3.1, 53.3], [-2.2, 53.3], [-2.2, 53.0], [-3.1, 53.0], [-3.1, 53.3]]]
             }
         },
+
+        // ============================================
+        // ENGLAND - Midlands
+        // ============================================
         {
             type: "Feature",
             properties: {
-                id: "eng_derbyshire",
+                id: "eng_derby",
                 name: "Derbyshire",
-                region: "Midlands",
+                region: "East Midlands",
                 country: "GBR",
                 terrain: "mountain",
-                population: 450000,
+                population: 1050000,
                 resources: ["coal", "lead"],
-                capital: "Derby"
+                capital: "Matlock"
             },
             geometry: {
                 type: "Polygon",
-                coordinates: [[[-2.0, 53.5], [-1.2, 53.5], [-1.2, 52.8], [-1.8, 52.8], [-2.0, 53.5]]]
+                coordinates: [[[-2.0, 53.4], [-1.2, 53.4], [-1.2, 52.85], [-2.0, 52.85], [-2.0, 53.4]]]
             }
         },
         {
             type: "Feature",
             properties: {
-                id: "eng_nottinghamshire",
+                id: "eng_notts",
                 name: "Nottinghamshire",
-                region: "Midlands",
+                region: "East Midlands",
                 country: "GBR",
                 terrain: "forest",
-                population: 500000,
-                resources: ["coal", "timber"],
+                population: 1150000,
+                resources: ["coal", "lace"],
                 capital: "Nottingham"
             },
             geometry: {
                 type: "Polygon",
-                coordinates: [[[-1.2, 53.5], [-0.5, 53.5], [-0.5, 52.8], [-1.2, 52.8], [-1.2, 53.5]]]
+                coordinates: [[[-1.2, 53.4], [-0.7, 53.4], [-0.7, 52.85], [-1.2, 52.85], [-1.2, 53.4]]]
             }
         },
         {
             type: "Feature",
             properties: {
-                id: "eng_lincolnshire",
+                id: "eng_lincoln",
                 name: "Lincolnshire",
-                region: "Midlands",
+                region: "East Midlands",
                 country: "GBR",
                 terrain: "plains",
-                population: 380000,
-                resources: ["grain", "wool"],
+                population: 760000,
+                resources: ["grain", "vegetables"],
                 capital: "Lincoln"
             },
             geometry: {
                 type: "Polygon",
-                coordinates: [[[-0.5, 53.5], [0.3, 53.5], [0.5, 52.7], [-0.3, 52.7], [-0.5, 53.5]]]
+                coordinates: [[[-0.7, 53.6], [0.35, 53.5], [0.35, 52.7], [-0.7, 52.7], [-0.7, 53.6]]]
             }
         },
         {
             type: "Feature",
             properties: {
-                id: "eng_staffordshire",
+                id: "eng_staffs",
                 name: "Staffordshire",
-                region: "Midlands",
+                region: "West Midlands",
                 country: "GBR",
                 terrain: "urban",
-                population: 600000,
-                resources: ["coal", "pottery", "steel"],
+                population: 1130000,
+                resources: ["pottery", "coal"],
                 capital: "Stafford"
             },
             geometry: {
                 type: "Polygon",
-                coordinates: [[[-2.4, 53.2], [-1.8, 53.2], [-1.8, 52.6], [-2.2, 52.6], [-2.4, 53.2]]]
+                coordinates: [[[-2.4, 53.1], [-1.8, 53.1], [-1.8, 52.65], [-2.4, 52.65], [-2.4, 53.1]]]
             }
         },
         {
             type: "Feature",
             properties: {
                 id: "eng_birmingham",
-                name: "West Midlands",
-                region: "Midlands",
+                name: "Birmingham",
+                region: "West Midlands",
                 country: "GBR",
                 terrain: "urban",
                 population: 2900000,
-                resources: ["manufacturing", "steel", "coal"],
+                resources: ["manufacturing", "jewelry"],
                 capital: "Birmingham"
             },
             geometry: {
                 type: "Polygon",
-                coordinates: [[[-2.2, 52.6], [-1.6, 52.6], [-1.6, 52.3], [-2.2, 52.3], [-2.2, 52.6]]]
+                coordinates: [[[-2.1, 52.65], [-1.7, 52.65], [-1.7, 52.35], [-2.1, 52.35], [-2.1, 52.65]]]
             }
         },
         {
             type: "Feature",
             properties: {
-                id: "eng_leicestershire",
+                id: "eng_leicester",
                 name: "Leicestershire",
-                region: "Midlands",
+                region: "East Midlands",
                 country: "GBR",
                 terrain: "plains",
-                population: 450000,
-                resources: ["wool", "grain"],
+                population: 1080000,
+                resources: ["hosiery", "footwear"],
                 capital: "Leicester"
             },
             geometry: {
                 type: "Polygon",
-                coordinates: [[[-1.6, 52.8], [-0.8, 52.8], [-0.8, 52.4], [-1.6, 52.4], [-1.6, 52.8]]]
+                coordinates: [[[-1.5, 52.85], [-0.9, 52.85], [-0.9, 52.45], [-1.5, 52.45], [-1.5, 52.85]]]
             }
         },
         {
@@ -500,37 +755,71 @@ const PROVINCES = {
             properties: {
                 id: "eng_shropshire",
                 name: "Shropshire",
-                region: "Midlands",
+                region: "West Midlands",
                 country: "GBR",
                 terrain: "plains",
-                population: 280000,
-                resources: ["coal", "iron"],
+                population: 320000,
+                resources: ["coal", "agriculture"],
                 capital: "Shrewsbury"
             },
             geometry: {
                 type: "Polygon",
-                coordinates: [[[-3.2, 52.9], [-2.4, 52.9], [-2.4, 52.3], [-3.0, 52.3], [-3.2, 52.9]]]
+                coordinates: [[[-3.2, 52.9], [-2.5, 52.9], [-2.5, 52.3], [-3.2, 52.3], [-3.2, 52.9]]]
+            }
+        },
+        {
+            type: "Feature",
+            properties: {
+                id: "eng_worcester",
+                name: "Worcestershire",
+                region: "West Midlands",
+                country: "GBR",
+                terrain: "plains",
+                population: 590000,
+                resources: ["fruit", "porcelain"],
+                capital: "Worcester"
+            },
+            geometry: {
+                type: "Polygon",
+                coordinates: [[[-2.5, 52.35], [-2.0, 52.35], [-2.0, 52.0], [-2.5, 52.0], [-2.5, 52.35]]]
+            }
+        },
+        {
+            type: "Feature",
+            properties: {
+                id: "eng_northants",
+                name: "Northamptonshire",
+                region: "East Midlands",
+                country: "GBR",
+                terrain: "plains",
+                population: 750000,
+                resources: ["footwear", "grain"],
+                capital: "Northampton"
+            },
+            geometry: {
+                type: "Polygon",
+                coordinates: [[[-1.3, 52.45], [-0.6, 52.45], [-0.6, 52.05], [-1.3, 52.05], [-1.3, 52.45]]]
             }
         },
 
         // ============================================
-        // ENGLAND - EAST (~5 provinces)
+        // ENGLAND - East
         // ============================================
         {
             type: "Feature",
             properties: {
                 id: "eng_norfolk",
                 name: "Norfolk",
-                region: "East England",
+                region: "East Anglia",
                 country: "GBR",
                 terrain: "plains",
-                population: 420000,
-                resources: ["grain", "fish"],
+                population: 900000,
+                resources: ["grain", "turkeys"],
                 capital: "Norwich"
             },
             geometry: {
                 type: "Polygon",
-                coordinates: [[[0.3, 53.0], [1.8, 52.9], [1.8, 52.4], [0.5, 52.4], [0.3, 53.0]]]
+                coordinates: [[[0.35, 53.1], [1.75, 52.95], [1.75, 52.5], [0.35, 52.5], [0.35, 53.1]]]
             }
         },
         {
@@ -538,33 +827,33 @@ const PROVINCES = {
             properties: {
                 id: "eng_suffolk",
                 name: "Suffolk",
-                region: "East England",
+                region: "East Anglia",
                 country: "GBR",
                 terrain: "plains",
-                population: 350000,
-                resources: ["grain", "wool"],
+                population: 760000,
+                resources: ["grain", "horses"],
                 capital: "Ipswich"
             },
             geometry: {
                 type: "Polygon",
-                coordinates: [[[0.5, 52.4], [1.8, 52.4], [1.5, 51.9], [0.5, 52.0], [0.5, 52.4]]]
+                coordinates: [[[0.4, 52.5], [1.75, 52.5], [1.6, 51.95], [0.4, 52.0], [0.4, 52.5]]]
             }
         },
         {
             type: "Feature",
             properties: {
-                id: "eng_cambridgeshire",
+                id: "eng_cambridge",
                 name: "Cambridgeshire",
-                region: "East England",
+                region: "East Anglia",
                 country: "GBR",
                 terrain: "plains",
-                population: 320000,
-                resources: ["grain"],
+                population: 850000,
+                resources: ["grain", "education"],
                 capital: "Cambridge"
             },
             geometry: {
                 type: "Polygon",
-                coordinates: [[[-0.3, 52.7], [0.5, 52.7], [0.5, 52.0], [-0.2, 52.0], [-0.3, 52.7]]]
+                coordinates: [[[-0.2, 52.65], [0.4, 52.65], [0.4, 52.0], [-0.2, 52.0], [-0.2, 52.65]]]
             }
         },
         {
@@ -572,54 +861,71 @@ const PROVINCES = {
             properties: {
                 id: "eng_essex",
                 name: "Essex",
-                region: "East England",
+                region: "East Anglia",
                 country: "GBR",
                 terrain: "plains",
-                population: 600000,
-                resources: ["grain", "fish"],
+                population: 1850000,
+                resources: ["grain", "oysters"],
                 capital: "Chelmsford"
             },
             geometry: {
                 type: "Polygon",
-                coordinates: [[[0.0, 52.0], [1.2, 52.0], [1.2, 51.5], [0.3, 51.5], [0.0, 51.7], [0.0, 52.0]]]
+                coordinates: [[[0.1, 52.0], [1.1, 51.95], [1.1, 51.55], [0.25, 51.55], [0.1, 51.75], [0.1, 52.0]]]
             }
         },
         {
             type: "Feature",
             properties: {
-                id: "eng_hertfordshire",
+                id: "eng_herts",
                 name: "Hertfordshire",
-                region: "East England",
+                region: "South East",
                 country: "GBR",
                 terrain: "plains",
-                population: 380000,
-                resources: ["grain"],
+                population: 1190000,
+                resources: ["grain", "brewing"],
                 capital: "Hertford"
             },
             geometry: {
                 type: "Polygon",
-                coordinates: [[[-0.5, 52.1], [0.0, 52.0], [0.0, 51.7], [-0.5, 51.7], [-0.5, 52.1]]]
+                coordinates: [[[-0.5, 52.05], [0.1, 52.0], [0.1, 51.7], [-0.5, 51.7], [-0.5, 52.05]]]
+            }
+        },
+        {
+            type: "Feature",
+            properties: {
+                id: "eng_beds",
+                name: "Bedfordshire",
+                region: "South East",
+                country: "GBR",
+                terrain: "plains",
+                population: 680000,
+                resources: ["bricks", "vegetables"],
+                capital: "Bedford"
+            },
+            geometry: {
+                type: "Polygon",
+                coordinates: [[[-0.6, 52.25], [-0.2, 52.25], [-0.2, 51.9], [-0.6, 51.9], [-0.6, 52.25]]]
             }
         },
 
         // ============================================
-        // ENGLAND - SOUTH EAST (~6 provinces)
+        // ENGLAND - South East
         // ============================================
         {
             type: "Feature",
             properties: {
                 id: "eng_london",
                 name: "London",
-                region: "South East England",
+                region: "South East",
                 country: "GBR",
                 terrain: "urban",
-                population: 8500000,
-                resources: ["manufacturing", "finance", "port"],
+                population: 8900000,
+                resources: ["finance", "port"],
                 capital: "London"
             },
             geometry: {
                 type: "Polygon",
-                coordinates: [[[-0.5, 51.7], [0.3, 51.7], [0.3, 51.3], [-0.5, 51.3], [-0.5, 51.7]]]
+                coordinates: [[[-0.5, 51.7], [0.25, 51.7], [0.25, 51.35], [-0.5, 51.35], [-0.5, 51.7]]]
             }
         },
         {
@@ -627,33 +933,16 @@ const PROVINCES = {
             properties: {
                 id: "eng_kent",
                 name: "Kent",
-                region: "South East England",
+                region: "South East",
                 country: "GBR",
                 terrain: "plains",
-                population: 550000,
-                resources: ["grain", "hops", "fruit"],
-                capital: "Canterbury"
+                population: 1870000,
+                resources: ["hops", "fruit"],
+                capital: "Maidstone"
             },
             geometry: {
                 type: "Polygon",
-                coordinates: [[[0.3, 51.5], [1.5, 51.4], [1.4, 51.0], [0.3, 51.1], [0.3, 51.5]]]
-            }
-        },
-        {
-            type: "Feature",
-            properties: {
-                id: "eng_sussex",
-                name: "Sussex",
-                region: "South East England",
-                country: "GBR",
-                terrain: "plains",
-                population: 480000,
-                resources: ["grain", "fish"],
-                capital: "Brighton"
-            },
-            geometry: {
-                type: "Polygon",
-                coordinates: [[[-0.8, 51.2], [0.3, 51.1], [0.3, 50.7], [-0.8, 50.7], [-0.8, 51.2]]]
+                coordinates: [[[0.25, 51.55], [1.45, 51.35], [1.4, 51.0], [0.25, 51.1], [0.25, 51.55]]]
             }
         },
         {
@@ -661,71 +950,122 @@ const PROVINCES = {
             properties: {
                 id: "eng_surrey",
                 name: "Surrey",
-                region: "South East England",
+                region: "South East",
                 country: "GBR",
                 terrain: "forest",
-                population: 350000,
+                population: 1200000,
                 resources: ["timber"],
                 capital: "Guildford"
             },
             geometry: {
                 type: "Polygon",
-                coordinates: [[[-0.8, 51.4], [-0.5, 51.3], [0.0, 51.3], [0.0, 51.1], [-0.8, 51.2], [-0.8, 51.4]]]
+                coordinates: [[[-0.8, 51.4], [-0.1, 51.4], [-0.1, 51.15], [-0.8, 51.15], [-0.8, 51.4]]]
             }
         },
         {
             type: "Feature",
             properties: {
-                id: "eng_berkshire",
-                name: "Berkshire",
-                region: "South East England",
+                id: "eng_sussex_east",
+                name: "East Sussex",
+                region: "South East",
                 country: "GBR",
                 terrain: "plains",
-                population: 280000,
+                population: 850000,
+                resources: ["fish", "tourism"],
+                capital: "Lewes"
+            },
+            geometry: {
+                type: "Polygon",
+                coordinates: [[[-0.1, 51.15], [0.5, 51.1], [0.45, 50.75], [-0.15, 50.75], [-0.1, 51.15]]]
+            }
+        },
+        {
+            type: "Feature",
+            properties: {
+                id: "eng_sussex_west",
+                name: "West Sussex",
+                region: "South East",
+                country: "GBR",
+                terrain: "plains",
+                population: 870000,
                 resources: ["grain"],
+                capital: "Chichester"
+            },
+            geometry: {
+                type: "Polygon",
+                coordinates: [[[-0.95, 51.1], [-0.1, 51.1], [-0.15, 50.75], [-0.95, 50.75], [-0.95, 51.1]]]
+            }
+        },
+        {
+            type: "Feature",
+            properties: {
+                id: "eng_berks",
+                name: "Berkshire",
+                region: "South East",
+                country: "GBR",
+                terrain: "plains",
+                population: 920000,
+                resources: ["grain", "racing"],
                 capital: "Reading"
             },
             geometry: {
                 type: "Polygon",
-                coordinates: [[[-1.5, 51.6], [-0.5, 51.6], [-0.5, 51.3], [-1.5, 51.3], [-1.5, 51.6]]]
+                coordinates: [[[-1.5, 51.55], [-0.8, 51.55], [-0.8, 51.35], [-1.5, 51.35], [-1.5, 51.55]]]
             }
         },
         {
             type: "Feature",
             properties: {
-                id: "eng_oxfordshire",
-                name: "Oxfordshire",
-                region: "South East England",
+                id: "eng_bucks",
+                name: "Buckinghamshire",
+                region: "South East",
                 country: "GBR",
                 terrain: "plains",
-                population: 300000,
-                resources: ["grain", "wool"],
+                population: 810000,
+                resources: ["furniture", "grain"],
+                capital: "Aylesbury"
+            },
+            geometry: {
+                type: "Polygon",
+                coordinates: [[[-1.15, 52.05], [-0.5, 52.05], [-0.5, 51.55], [-1.15, 51.55], [-1.15, 52.05]]]
+            }
+        },
+        {
+            type: "Feature",
+            properties: {
+                id: "eng_oxford",
+                name: "Oxfordshire",
+                region: "South East",
+                country: "GBR",
+                terrain: "plains",
+                population: 690000,
+                resources: ["education", "grain"],
                 capital: "Oxford"
             },
             geometry: {
                 type: "Polygon",
-                coordinates: [[[-1.7, 52.1], [-1.0, 52.1], [-1.0, 51.6], [-1.7, 51.6], [-1.7, 52.1]]]
+                coordinates: [[[-1.7, 52.1], [-1.15, 52.1], [-1.15, 51.6], [-1.7, 51.6], [-1.7, 52.1]]]
             }
         },
 
         // ============================================
-        // ENGLAND - SOUTH WEST (~6 provinces)
+        // ENGLAND - South West
         // ============================================
         {
             type: "Feature",
             properties: {
-                id: "eng_hampshire",
+                id: "eng_hants",
                 name: "Hampshire",
-                region: "South West England",
+                region: "South West",
                 country: "GBR",
-                terrain: "forest",
-                population: 520000,
-                resources: ["timber", "grain"],
+                terrain: "plains",
+                population: 1380000,
+                resources: ["grain", "navy"],
                 capital: "Winchester"
             },
             geometry: {
                 type: "Polygon",
-                coordinates: [[[-1.8, 51.3], [-0.8, 51.2], [-0.8, 50.7], [-1.8, 50.7], [-1.8, 51.3]]]
+                coordinates: [[[-1.85, 51.3], [-0.95, 51.3], [-0.95, 50.75], [-1.85, 50.7], [-1.85, 51.3]]]
             }
         },
         {
@@ -733,33 +1073,67 @@ const PROVINCES = {
             properties: {
                 id: "eng_dorset",
                 name: "Dorset",
-                region: "South West England",
+                region: "South West",
                 country: "GBR",
                 terrain: "plains",
-                population: 220000,
-                resources: ["grain", "fish"],
+                population: 420000,
+                resources: ["dairy", "tourism"],
                 capital: "Dorchester"
             },
             geometry: {
                 type: "Polygon",
-                coordinates: [[[-2.8, 51.0], [-1.8, 51.0], [-1.8, 50.5], [-2.8, 50.5], [-2.8, 51.0]]]
+                coordinates: [[[-2.95, 51.0], [-1.85, 51.0], [-1.85, 50.55], [-2.95, 50.55], [-2.95, 51.0]]]
             }
         },
         {
             type: "Feature",
             properties: {
-                id: "eng_wiltshire",
+                id: "eng_wilts",
                 name: "Wiltshire",
-                region: "South West England",
+                region: "South West",
                 country: "GBR",
                 terrain: "plains",
-                population: 260000,
+                population: 720000,
                 resources: ["wool", "grain"],
-                capital: "Salisbury"
+                capital: "Trowbridge"
             },
             geometry: {
                 type: "Polygon",
-                coordinates: [[[-2.2, 51.6], [-1.5, 51.6], [-1.5, 51.0], [-2.2, 51.0], [-2.2, 51.6]]]
+                coordinates: [[[-2.3, 51.6], [-1.5, 51.6], [-1.5, 51.0], [-2.3, 51.0], [-2.3, 51.6]]]
+            }
+        },
+        {
+            type: "Feature",
+            properties: {
+                id: "eng_glos",
+                name: "Gloucestershire",
+                region: "South West",
+                country: "GBR",
+                terrain: "plains",
+                population: 930000,
+                resources: ["wool", "cheese"],
+                capital: "Gloucester"
+            },
+            geometry: {
+                type: "Polygon",
+                coordinates: [[[-2.7, 52.1], [-1.9, 52.1], [-1.9, 51.6], [-2.7, 51.6], [-2.7, 52.1]]]
+            }
+        },
+        {
+            type: "Feature",
+            properties: {
+                id: "eng_bristol",
+                name: "Bristol",
+                region: "South West",
+                country: "GBR",
+                terrain: "urban",
+                population: 460000,
+                resources: ["port", "aerospace"],
+                capital: "Bristol"
+            },
+            geometry: {
+                type: "Polygon",
+                coordinates: [[[-2.75, 51.55], [-2.45, 51.55], [-2.45, 51.35], [-2.75, 51.35], [-2.75, 51.55]]]
             }
         },
         {
@@ -767,16 +1141,16 @@ const PROVINCES = {
             properties: {
                 id: "eng_somerset",
                 name: "Somerset",
-                region: "South West England",
+                region: "South West",
                 country: "GBR",
                 terrain: "plains",
-                population: 350000,
-                resources: ["dairy", "cider"],
+                population: 560000,
+                resources: ["cider", "dairy"],
                 capital: "Taunton"
             },
             geometry: {
                 type: "Polygon",
-                coordinates: [[[-3.5, 51.4], [-2.2, 51.4], [-2.2, 50.9], [-3.5, 51.0], [-3.5, 51.4]]]
+                coordinates: [[[-3.6, 51.35], [-2.45, 51.35], [-2.45, 50.95], [-3.6, 50.95], [-3.6, 51.35]]]
             }
         },
         {
@@ -784,16 +1158,16 @@ const PROVINCES = {
             properties: {
                 id: "eng_devon",
                 name: "Devon",
-                region: "South West England",
+                region: "South West",
                 country: "GBR",
                 terrain: "mountain",
-                population: 400000,
-                resources: ["tin", "fish", "wool"],
+                population: 790000,
+                resources: ["dairy", "tourism"],
                 capital: "Exeter"
             },
             geometry: {
                 type: "Polygon",
-                coordinates: [[[-4.6, 51.2], [-3.0, 51.2], [-2.8, 50.5], [-4.2, 50.2], [-4.6, 51.2]]]
+                coordinates: [[[-4.65, 51.2], [-3.0, 51.2], [-3.0, 50.25], [-4.65, 50.2], [-4.65, 51.2]]]
             }
         },
         {
@@ -801,105 +1175,173 @@ const PROVINCES = {
             properties: {
                 id: "eng_cornwall",
                 name: "Cornwall",
-                region: "South West England",
+                region: "South West",
                 country: "GBR",
                 terrain: "coastal",
-                population: 180000,
-                resources: ["tin", "copper", "fish"],
+                population: 570000,
+                resources: ["tin", "fish", "tourism"],
                 capital: "Truro"
             },
             geometry: {
                 type: "Polygon",
-                coordinates: [[[-5.7, 50.7], [-4.2, 50.7], [-4.2, 50.0], [-5.7, 50.0], [-5.7, 50.7]]]
+                coordinates: [[[-5.7, 50.7], [-4.65, 50.7], [-4.65, 50.0], [-5.7, 50.0], [-5.7, 50.7]]]
             }
         },
 
         // ============================================
-        // WALES (~6 provinces)
+        // WALES
         // ============================================
         {
             type: "Feature",
             properties: {
-                id: "wales_north",
-                name: "North Wales",
+                id: "wales_anglesey",
+                name: "Anglesey",
+                region: "Wales",
+                country: "GBR",
+                terrain: "coastal",
+                population: 70000,
+                resources: ["copper", "agriculture"],
+                capital: "Llangefni"
+            },
+            geometry: {
+                type: "Polygon",
+                coordinates: [[[-4.7, 53.45], [-4.0, 53.45], [-4.0, 53.15], [-4.7, 53.15], [-4.7, 53.45]]]
+            }
+        },
+        {
+            type: "Feature",
+            properties: {
+                id: "wales_gwynedd",
+                name: "Gwynedd",
                 region: "Wales",
                 country: "GBR",
                 terrain: "mountain",
-                population: 250000,
-                resources: ["slate", "coal"],
+                population: 125000,
+                resources: ["slate", "tourism"],
                 capital: "Caernarfon"
             },
             geometry: {
                 type: "Polygon",
-                coordinates: [[[-4.8, 53.4], [-3.0, 53.3], [-3.0, 52.9], [-4.2, 52.9], [-4.8, 53.4]]]
+                coordinates: [[[-4.5, 53.15], [-3.6, 53.15], [-3.6, 52.7], [-4.5, 52.7], [-4.5, 53.15]]]
             }
         },
         {
             type: "Feature",
             properties: {
-                id: "wales_mid",
-                name: "Mid Wales",
+                id: "wales_clwyd",
+                name: "Clwyd",
                 region: "Wales",
                 country: "GBR",
-                terrain: "mountain",
-                population: 120000,
-                resources: ["wool", "timber"],
-                capital: "Aberystwyth"
+                terrain: "plains",
+                population: 420000,
+                resources: ["coal", "steel"],
+                capital: "Mold"
             },
             geometry: {
                 type: "Polygon",
-                coordinates: [[[-4.5, 52.9], [-3.0, 52.9], [-3.0, 52.2], [-4.5, 52.2], [-4.5, 52.9]]]
+                coordinates: [[[-3.6, 53.35], [-3.0, 53.35], [-3.0, 52.9], [-3.6, 52.9], [-3.6, 53.35]]]
             }
         },
         {
             type: "Feature",
             properties: {
-                id: "wales_powys",
-                name: "Powys",
+                id: "wales_powys_north",
+                name: "Powys North",
                 region: "Wales",
                 country: "GBR",
                 terrain: "mountain",
-                population: 130000,
+                population: 65000,
                 resources: ["wool", "livestock"],
                 capital: "Welshpool"
             },
             geometry: {
                 type: "Polygon",
-                coordinates: [[[-3.5, 52.8], [-3.0, 52.8], [-3.0, 52.0], [-3.5, 52.0], [-3.5, 52.8]]]
+                coordinates: [[[-3.6, 52.9], [-3.0, 52.9], [-3.0, 52.4], [-3.6, 52.4], [-3.6, 52.9]]]
             }
         },
         {
             type: "Feature",
             properties: {
-                id: "wales_southwest",
+                id: "wales_ceredigion",
+                name: "Ceredigion",
+                region: "Wales",
+                country: "GBR",
+                terrain: "coastal",
+                population: 80000,
+                resources: ["fish", "tourism"],
+                capital: "Aberystwyth"
+            },
+            geometry: {
+                type: "Polygon",
+                coordinates: [[[-4.7, 52.7], [-3.8, 52.7], [-3.8, 52.1], [-4.7, 52.1], [-4.7, 52.7]]]
+            }
+        },
+        {
+            type: "Feature",
+            properties: {
+                id: "wales_powys_south",
+                name: "Powys South",
+                region: "Wales",
+                country: "GBR",
+                terrain: "mountain",
+                population: 67000,
+                resources: ["wool", "timber"],
+                capital: "Brecon"
+            },
+            geometry: {
+                type: "Polygon",
+                coordinates: [[[-3.8, 52.4], [-3.0, 52.4], [-3.0, 51.85], [-3.8, 51.85], [-3.8, 52.4]]]
+            }
+        },
+        {
+            type: "Feature",
+            properties: {
+                id: "wales_pembroke",
                 name: "Pembrokeshire",
                 region: "Wales",
                 country: "GBR",
                 terrain: "coastal",
-                population: 110000,
-                resources: ["fish", "dairy"],
+                population: 125000,
+                resources: ["fish", "oil refining"],
                 capital: "Haverfordwest"
             },
             geometry: {
                 type: "Polygon",
-                coordinates: [[[-5.5, 52.2], [-4.5, 52.2], [-4.5, 51.6], [-5.5, 51.6], [-5.5, 52.2]]]
+                coordinates: [[[-5.3, 52.1], [-4.7, 52.1], [-4.7, 51.6], [-5.3, 51.6], [-5.3, 52.1]]]
             }
         },
         {
             type: "Feature",
             properties: {
-                id: "wales_south",
-                name: "South Wales",
+                id: "wales_carmarthen",
+                name: "Carmarthenshire",
                 region: "Wales",
                 country: "GBR",
-                terrain: "urban",
-                population: 800000,
-                resources: ["coal", "steel", "iron"],
-                capital: "Cardiff"
+                terrain: "plains",
+                population: 190000,
+                resources: ["dairy", "coal"],
+                capital: "Carmarthen"
             },
             geometry: {
                 type: "Polygon",
-                coordinates: [[[-4.5, 51.9], [-3.0, 51.9], [-2.8, 51.4], [-4.5, 51.4], [-4.5, 51.9]]]
+                coordinates: [[[-4.7, 52.1], [-3.8, 52.1], [-3.8, 51.7], [-4.7, 51.7], [-4.7, 52.1]]]
+            }
+        },
+        {
+            type: "Feature",
+            properties: {
+                id: "wales_swansea",
+                name: "Swansea",
+                region: "Wales",
+                country: "GBR",
+                terrain: "urban",
+                population: 245000,
+                resources: ["copper", "port"],
+                capital: "Swansea"
+            },
+            geometry: {
+                type: "Polygon",
+                coordinates: [[[-4.3, 51.75], [-3.85, 51.75], [-3.85, 51.5], [-4.3, 51.5], [-4.3, 51.75]]]
             }
         },
         {
@@ -912,11 +1354,28 @@ const PROVINCES = {
                 terrain: "urban",
                 population: 450000,
                 resources: ["coal", "steel"],
-                capital: "Swansea"
+                capital: "Cardiff"
             },
             geometry: {
                 type: "Polygon",
-                coordinates: [[[-4.5, 51.9], [-4.5, 51.4], [-3.6, 51.4], [-3.6, 51.9], [-4.5, 51.9]]]
+                coordinates: [[[-3.85, 51.75], [-3.1, 51.75], [-3.1, 51.4], [-3.85, 51.4], [-3.85, 51.75]]]
+            }
+        },
+        {
+            type: "Feature",
+            properties: {
+                id: "wales_gwent",
+                name: "Gwent",
+                region: "Wales",
+                country: "GBR",
+                terrain: "urban",
+                population: 470000,
+                resources: ["coal", "steel"],
+                capital: "Newport"
+            },
+            geometry: {
+                type: "Polygon",
+                coordinates: [[[-3.3, 51.9], [-2.65, 51.9], [-2.65, 51.55], [-3.3, 51.55], [-3.3, 51.9]]]
             }
         }
     ]
