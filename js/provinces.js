@@ -8,18 +8,17 @@ let PROVINCES = null;
 let PROVINCE_INDEX = {};
 
 /**
- * Load provinces from TopoJSON file
+ * Load provinces from GeoJSON file
  */
-async function loadProvinces(url = 'data/world_provinces.topojson') {
+async function loadProvinces(url = 'data/provinces.geojson') {
     try {
         const response = await fetch(url);
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
-        const topology = await response.json();
 
-        // Convert TopoJSON to GeoJSON
-        PROVINCES = topojson.feature(topology, topology.objects.provinces);
+        // Load GeoJSON directly
+        PROVINCES = await response.json();
 
         // Build index
         PROVINCE_INDEX = {};

@@ -23,8 +23,8 @@
         try {
             // Load data in parallel
             const [countryData, provinceData] = await Promise.all([
-                fetch('data/countries.geojson').then(r => r.json()),
-                loadProvinces('data/world_provinces.topojson')
+                fetch('data/countries-50m.json').then(r => r.json()),
+                loadProvinces('data/provinces.geojson')
             ]);
 
             state.provinces = provinceData;

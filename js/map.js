@@ -86,15 +86,26 @@ class WorldMap {
     }
 
     /**
-     * Render country base layer from GeoJSON data
+     * Render country base layer from TopoJSON or GeoJSON data
      */
-    renderCountries(countryData) {
+    renderCountries(data) {
         // Remove existing countries
         this.g.selectAll(".country").remove();
 
+        // Handle TopoJSON (world-atlas format) or GeoJSON
+        let features;
+        if (data.type === "Topology") {
+            // TopoJSON - convert to GeoJSON features
+            const objectName = Object.keys(data.objects)[0];
+            features = topojson.feature(data, data.objects[objectName]).features;
+        } else {
+            // GeoJSON
+            features = data.features;
+        }
+
         // Add countries as base layer
         this.g.selectAll(".country")
-            .data(countryData.features)
+            .data(features)
             .enter()
             .append("path")
             .attr("class", "country")
@@ -124,7 +135,7 @@ class WorldMap {
             .append("path")
             .attr("class", "province")
             .attr("d", this.path)
-            .attr("data-id", d => d.properties.id)
+            .attr("data-id", d => d.properties.adm1_code || d.properties.id)
             .attr("data-country", d => d.properties.admin)
             .style("fill", d => colorScale(d.properties.admin))
             .on("click", (event, d) => this.handleProvinceClick(event, d))
